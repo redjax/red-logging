@@ -1,7 +1,7 @@
 [project]
 name = "red-logging"
-version = "0.1.0"
-description = "Default template for PDM package"
+version = "0.0.0"
+description = "Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies."
 authors = [{ name = "redjaxk", email = "no@none.com" }]
 dependencies = []
 requires-python = ">=3.11"
@@ -46,7 +46,7 @@ sort-imports = { shell = "pdm run ruff check --select I --fix ." }
 
 lint = { cmd = "nox -s lint" }
 
-lint-ci = { shell = "pdm run black . && RUFF_CONFIG=ruff.ci.toml pdm run ruff check . --fix" }
+lint-ci = { shell = "RUFF_CONFIG=ruff.ci.toml pdm run ruff check . --fix" }
 
 check = { cmd = "black ." }
 

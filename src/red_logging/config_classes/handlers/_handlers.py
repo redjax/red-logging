@@ -15,7 +15,6 @@ from red_logging.config_classes.base import (
     BaseLoggingConfig,
 )
 
-
 @dataclass
 class StreamHandlerConfig(BaseHandlerConfig):
     """Define a logging StreamHandler.
