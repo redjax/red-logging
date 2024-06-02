@@ -4,11 +4,11 @@ Helpful classes, functions, & utilities for the stdlib `logging` module. No exte
 
 ## Project Links
 
-| Site       | URL                                                                 |
-| ---------- | ------------------------------------------------------------------- |
-| Repository | [Github: redjax/red-logging](https://github.com/redjax/red-logging) |
-| Docs       | [ReadTheDocs](https://red-logging.readthedocs.io/en/latest/)        |
-| Pypi       | [projects/red-logging](https://pypi.org/project/red-logging)        |
+| Site         | URL                                                                 |
+| ------------ | ------------------------------------------------------------------- |
+| 🏠 Repository | [Github: redjax/red-logging](https://github.com/redjax/red-logging) |
+| 📚 Docs       | [ReadTheDocs](https://red-logging.readthedocs.io/en/stable/)        |
+| 🐍 Pypi       | [projects/red-logging](https://pypi.org/project/red-logging)        |
 
 ## Why?
 
