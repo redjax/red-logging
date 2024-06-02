@@ -1,8 +1,9 @@
-import typing as t
+from __future__ import annotations
 
 import logging
+from logging import Formatter, StreamHandler
 from logging.config import dictConfig
-from logging import StreamHandler, Formatter
+import typing as t
 
 tests_logging_config: dict[str, t.Any] = {
     "version": 1,

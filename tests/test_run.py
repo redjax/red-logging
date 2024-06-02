@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+
 from .tests_logging import setup_tests_logging
 
 setup_tests_logging()
