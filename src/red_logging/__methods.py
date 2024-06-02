@@ -42,7 +42,6 @@ from red_logging.fmts import (
     red_logging_FMT,
 )
 
-
 def _ensure_logdir(p: t.Union[str, Path] = None) -> None:
     """Ensure a directory exists.
 

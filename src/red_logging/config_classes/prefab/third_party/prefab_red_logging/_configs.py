@@ -43,7 +43,6 @@ from red_logging.helpers import (
     get_streamhandler_config,
 )
 
-
 def get_red_logging_formatter(
     name: str = "red_logging", fmt: str = red_logging_FMT, datefmt: str = DATE_FMT_STANDARD
 ) -> FormatterConfig:

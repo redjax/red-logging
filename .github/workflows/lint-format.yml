@@ -42,7 +42,7 @@ jobs:
         if: ${{ matrix.python-version == '3.11' }}
 
       - name: Lint & format
-        run: python -m nox -s lint
+        run: python -m nox -s ci-lint
         if: ${{ matrix.python-version == '3.11' }}
 
       - name: Commit & push changes
