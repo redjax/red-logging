@@ -1,1 +1,3 @@
-from . import expect_pass, expect_fail
+from __future__ import annotations
+
+from . import expect_fail, expect_pass

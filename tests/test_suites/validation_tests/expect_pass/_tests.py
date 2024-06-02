@@ -1,9 +1,10 @@
-from pytest import mark
+from __future__ import annotations
 
 import logging
 import logging.config
 import logging.handlers
 
+from pytest import mark
 import red_logging
 
 log = logging.getLogger("red-log_tests.test_suites.validation_tests.expect_pass")

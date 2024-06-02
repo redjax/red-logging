@@ -1,12 +1,11 @@
 from __future__ import annotations
 
-from pathlib import Path
-import platform
-import shutil
-
 import logging
 import logging.config
 import logging.handlers
+from pathlib import Path
+import platform
+import shutil
 
 logging_config: dict = {
     "version": 1,
@@ -21,7 +20,7 @@ logging_config: dict = {
     },
     "formatters": {
         "nox": {
-            "format": "[NOX] [%(asctime)s] [%(levelname)s] %(name)s: %(message)s",
+            "format": "[NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
             "datefmt": "%Y-%m-%D %H:%M:%S",
         }
     },

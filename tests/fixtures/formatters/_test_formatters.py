@@ -1,9 +1,10 @@
+from __future__ import annotations
+
 import logging
 import logging.handlers
 
 from pytest import fixture
 import red_logging
-
 
 @fixture
 def default_formatter_class() -> red_logging.config_classes.FormatterConfig:
