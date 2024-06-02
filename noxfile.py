@@ -7,27 +7,30 @@ from pathlib import Path
 import platform
 import shutil
 
-logging_config: dict = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "loggers": {"nox": {"level": "DEBUG", "handlers": ["console"], "propagate": False}},
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-            "formatter": "nox",
-            "level": "DEBUG",
-            "stream": "ext://sys.stdout",
-        }
-    },
-    "formatters": {
-        "nox": {
-            "format": "[NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
-            "datefmt": "%Y-%m-%D %H:%M:%S",
-        }
-    },
-}
+def setup_nox_logging() -> None:
+    logging_config: dict = {
+        "version": 1,
+        "disable_existing_loggers": False,
+        "loggers": {"nox": {"level": "DEBUG", "handlers": ["console"], "propagate": False}},
+        "handlers": {
+            "console": {
+                "class": "logging.StreamHandler",
+                "formatter": "nox",
+                "level": "DEBUG",
+                "stream": "ext://sys.stdout",
+            }
+        },
+        "formatters": {
+            "nox": {
+                "format": "[NOX] [%(asctime)s] [%(levelname)s] [%(name)s]: %(message)s",
+                "datefmt": "%Y-%m-%D %H:%M:%S",
+            }
+        },
+    }
 
-logging.config.dictConfig(config=logging_config)
+    logging.config.dictConfig(config=logging_config)
+
+setup_nox_logging()
 
 log = logging.getLogger("nox")
 
@@ -85,11 +88,11 @@ if not REQUIREMENTS_OUTPUT_DIR.exists():
         REQUIREMENTS_OUTPUT_DIR: Path = Path(".")
 
 
-@nox.session(python=PY_VERSIONS, name="build-env")
+@nox.session(python=DEFAULT_PYTHON, name="build-env")
 @nox.parametrize("pdm_ver", [PDM_VER])
 def setup_base_testenv(session: nox.Session, pdm_ver: str):
     log.info(
-        f"Building Nox environment. PDM version: {pdm_ver}. Using Python: {PY_VERSIONS}"
+        f"Building Nox environment. PDM version: {pdm_ver}. Using Python: {DEFAULT_PYTHON}"
     )
     session.install(f"pdm>={pdm_ver}")
 
