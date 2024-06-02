@@ -2,6 +2,14 @@
 
 Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies.
 
+## Project Links
+
+| Site       | URL                                                                 |
+| ---------- | ------------------------------------------------------------------- |
+| Repository | [Github: redjax/red-logging](https://github.com/redjax/red-logging) |
+| Docs       | [ReadTheDocs](https://red-logging.readthedocs.io/en/latest/)        |
+| Pypi       | [projects/red-logging](https://pypi.org/project/red-logging)        |
+
 ## Why?
 
 I wanted to learn the stdlib `logging` module, and found I liked configuring my logger(s) with `logging.config.dictConfig()`. However, I did not want to have to continually check reference pages, copy/paste code, and do all the logging setup by hand each time.

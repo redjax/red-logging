@@ -1,15 +1,21 @@
 [project]
 name = "red-logging"
-version = "0.0.0"
+version = "0.1.0"
 description = "Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies."
-authors = [{ name = "redjaxk", email = "no@none.com" }]
+authors = [
+    { name = "redjaxk", email = "no@none.com" },
+]
 dependencies = []
 requires-python = ">=3.11"
 readme = "README.md"
-license = { text = "MIT" }
+
+[project.license]
+text = "MIT"
 
 [build-system]
-requires = ["pdm-backend"]
+requires = [
+    "pdm-backend",
+]
 build-backend = "pdm.backend"
 
 [tool.pdm]
@@ -37,59 +43,88 @@ dev = [
     "mkdocs-literate-nav>=0.6.1",
 ]
 
-[tool.pdm.scripts]
-tests = { cmd = "nox -s tests" }
+[tool.pdm.scripts.tests]
+cmd = "nox -s tests"
 
-git-prune-tags = { cmd = "git fetch --prune origin '+refs/tags/*:refs/tags/*'" }
+[tool.pdm.scripts.git-prune-tags]
+cmd = "git fetch --prune origin '+refs/tags/*:refs/tags/*'"
 
-sort-imports = { shell = "pdm run ruff check --select I --fix ." }
+[tool.pdm.scripts.sort-imports]
+shell = "pdm run ruff check --select I --fix ."
 
-lint = { cmd = "nox -s lint" }
+[tool.pdm.scripts.lint]
+cmd = "nox -s lint"
 
-lint-ci = { shell = "RUFF_CONFIG=ruff.ci.toml pdm run ruff check . --fix" }
+[tool.pdm.scripts.lint-ci]
+shell = "RUFF_CONFIG=ruff.ci.toml pdm run ruff check . --fix"
 
-check = { cmd = "black ." }
+[tool.pdm.scripts.check]
+cmd = "black ."
 
-format = { cmd = "ruff check . --fix" }
+[tool.pdm.scripts.format]
+cmd = "ruff check . --fix"
 
-vulture-check = { cmd = "vulture src/red_logging --min-confidence 100" }
+[tool.pdm.scripts.vulture-check]
+cmd = "vulture src/red_logging --min-confidence 100"
 
-bandit-check = { cmd = "bandit -r src/red_logging" }
+[tool.pdm.scripts.bandit-check]
+cmd = "bandit -r src/red_logging"
 
-scan-secrets = { cmd = "detect-secrets scan > .secrets.baseline" }
+[tool.pdm.scripts.scan-secrets]
+cmd = "detect-secrets scan > .secrets.baseline"
 
-radon-complexity = { cmd = "radon cc src/red_logging -s -a --total-average -nc -j -O radon_complexity_results.json" }
+[tool.pdm.scripts.radon-complexity]
+cmd = "radon cc src/red_logging -s -a --total-average -nc -j -O radon_complexity_results.json"
 
-radon-raw = { cmd = "radon raw src/red_logging -sjO radon_raw_results.json" }
+[tool.pdm.scripts.radon-raw]
+cmd = "radon raw src/red_logging -sjO radon_raw_results.json"
 
-radon-maintainability = { cmd = "radon mi src/red_logging -n C -x F -s -j -O radon_maintainability_results.json" }
+[tool.pdm.scripts.radon-maintainability]
+cmd = "radon mi src/red_logging -n C -x F -s -j -O radon_maintainability_results.json"
 
-radon-halstead = { cmd = "radon hal src red_logging -f -j -O radon_halstead_results.json" }
+[tool.pdm.scripts.radon-halstead]
+cmd = "radon hal src red_logging -f -j -O radon_halstead_results.json"
 
-xenon-scan = { cmd = "xenon -b B -m C -a C src/red_logging" }
+[tool.pdm.scripts.xenon-scan]
+cmd = "xenon -b B -m C -a C src/red_logging"
 
-export = { shell = "pdm export --prod --no-default -o requirements.txt --without-hashes" }
+[tool.pdm.scripts.export]
+shell = "pdm export --prod --no-default -o requirements.txt --without-hashes"
 
-export-dev = { shell = "pdm export -d --no-default -o requirements.dev.txt --without-hashes" }
+[tool.pdm.scripts.export-dev]
+shell = "pdm export -d --no-default -o requirements.dev.txt --without-hashes"
 
-export-ci = { shell = "pdm export -G ci --no-default -o requirements.ci.txt --without-hashes" }
+[tool.pdm.scripts.export-ci]
+shell = "pdm export -G ci --no-default -o requirements.ci.txt --without-hashes"
 
-export-docs = { shell = "pdm export -G docs --no-default -o docs/requirements.txt --without-hashes" }
+[tool.pdm.scripts.export-docs]
+shell = "pdm export -G docs --no-default -o docs/requirements.txt --without-hashes"
 
-create-major-release = { shell = "pdm bump major && pdm bump tag && pdm lock && pdm build && git push --tags" }
+[tool.pdm.scripts.create-major-release]
+shell = "pdm bump major && pdm bump tag && pdm lock && pdm build && git push --tags"
 
-create-minor-release = { shell = "pdm bump minor && pdm bump tag && pdm lock && pdm build && git push --tags" }
+[tool.pdm.scripts.create-minor-release]
+shell = "pdm bump minor && pdm bump tag && pdm lock && pdm build && git push --tags"
 
-create-micro-release = { shell = "pdm bump micro && pdm bump tag && pdm lock && pdm build && git push --tags" }
+[tool.pdm.scripts.create-micro-release]
+shell = "pdm bump micro && pdm bump tag && pdm lock && pdm build && git push --tags"
 
-upload-pypi = { shell = "pdm lock && pdm publish --repository pypi --verbose" }
+[tool.pdm.scripts.upload-pypi]
+shell = "pdm lock && pdm publish --repository pypi --verbose"
 
-upload-pypi-test = { shell = "pdm lock && pdm publish --repository testpypi --verbose" }
+[tool.pdm.scripts.upload-pypi-test]
+shell = "pdm lock && pdm publish --repository testpypi --verbose"
 
-mkdocs-build = { cmd = "mkdocs build" }
+[tool.pdm.scripts.mkdocs-build]
+cmd = "mkdocs build"
 
-mkdocs-serve = { cmd = "mkdocs serve --dev-addr 0.0.0.0:8000" }
+[tool.pdm.scripts.mkdocs-serve]
+cmd = "mkdocs serve --dev-addr 0.0.0.0:8000"
 
 [tool.bandit]
-exclude_dirs = ["tests"]
-skips = ["B324"]
+exclude_dirs = [
+    "tests",
+]
+skips = [
+    "B324",
+]
