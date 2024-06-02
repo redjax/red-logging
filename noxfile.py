@@ -22,7 +22,7 @@ nox.sessions = ["lint", "export", "tests"]
 ## Define versions to test
 PY_VERSIONS: list[str] = ["3.12", "3.11"]
 ## Set PDM version to install throughout
-PDM_VER: str = "2.11.2"
+PDM_VER: str = "2.15.4"
 ## Set paths to lint with the lint session
 LINT_PATHS: list[str] = ["src", "tests", "./noxfile.py"]
 
@@ -59,7 +59,7 @@ def setup_base_testenv(session: nox.Session, pdm_ver: str):
 
 @nox.session(python=[DEFAULT_PYTHON], name="lint")
 def run_linter(session: nox.Session):
-    session.install("ruff", "black")
+    session.install("ruff")
 
     for d in LINT_PATHS:
         if not Path(d).exists():
@@ -76,11 +76,47 @@ def run_linter(session: nox.Session):
                 lint_path,
             )
 
-            print(f"Formatting '{d}' with Black")
+            # print(f"Formatting '{d}' with Black")
+            # session.run(
+            #     "black",
+            #     lint_path,
+            # )
+
+            print(f"Running ruff checks on '{d}' with --fix")
             session.run(
-                "black",
+                "ruff",
+                "check",
+                "--config",
+                "ruff.toml",
+                lint_path,
+                "--fix",
+            )
+
+
+@nox.session(python=[DEFAULT_PYTHON], name="ci-lint")
+def run_ci_linter(session: nox.Session):
+    session.install("ruff")
+
+    for d in LINT_PATHS:
+        if not Path(d).exists():
+            print(f"Skipping lint path '{d}', could not find path")
+            pass
+        else:
+            lint_path: Path = Path(d)
+            print(f"Running ruff imports sort on '{d}'")
+            session.run(
+                "ruff",
+                "--select",
+                "I",
+                "--fix",
                 lint_path,
             )
+
+            # print(f"Formatting '{d}' with Black")
+            # session.run(
+            #     "black",
+            #     lint_path,
+            # )
 
             print(f"Running ruff checks on '{d}' with --fix")
             session.run(

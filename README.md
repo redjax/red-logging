@@ -1,5 +1,13 @@
 # red-log
 
+Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies.
+
+## Why?
+
+I wanted to learn the stdlib `logging` module, and found I liked configuring my logger(s) with `logging.config.dictConfig()`. However, I did not want to have to continually check reference pages, copy/paste code, and do all the logging setup by hand each time.
+
+`red-log` does not import any 3rd party modules, only Python's stdlib modules are used. This package does not necessarily aim to simplify configuring logging, but the [config classes](./src/red_logging/config_classes) help by exposing configuration options for the `logging` module's formatters, handlers, and loggers.
+
 ## Logger Configuration
 
 ### With dictConfig()
