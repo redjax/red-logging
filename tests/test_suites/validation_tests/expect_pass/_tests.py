@@ -7,7 +7,7 @@ import logging.handlers
 from pytest import mark
 import red_logging
 
-log = logging.getLogger("red-log_tests.test_suites.validation_tests.expect_pass")
+log = logging.getLogger("tests.test_suites.validation_tests.expect_pass")
 
 
 @mark.validation

@@ -16,6 +16,7 @@ logging_config: dict = {
             "class": "logging.StreamHandler",
             "formatter": "nox",
             "level": "DEBUG",
+            "stream": "ext://sys.stdout",
         }
     },
     "formatters": {

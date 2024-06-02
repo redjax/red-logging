@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import logging
+from .tests_logging import setup_tests_logging
 
-log = logging.getLogger("red-log_tests")
+setup_tests_logging()
 
-logging.basicConfig(level=logging.DEBUG)
+log = logging.getLogger("tests")
 
 log.info("Running validation tests, expect passes")
 
