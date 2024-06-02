@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "disable_existing_loggers": false,
+  "propagate": true,
+  "formatters": {
+    "simple": {
+      "fmt": "[%(asctime)s] [%(levelname)s] > [%(filename)s:%(lineno)d]: %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "style": "%",
+      "validate": true
+    },
+    "detail": {
+      "fmt": "[%(astime)s] [Logger:%(name)s] [pid:%(process)d] [procname:%(processName)s] [%(levelname)s] [module:%(module)s] > [%(filename)s.%(funcname)s:%(lineno)d]: %(message)s",
+      "datefmt": "%Y-%m-%d %H:%M:%S",
+      "style": "%",
+      "validate": true
+    }
+  },
+  "handlers": {
+    "console": {
+      "class": "logging.StreamHandler",
+      "level": "DEBUG",
+      "formatter": "simple",
+      "stream": "ext://sys.stdout"
+    },
+    "err_file": {
+      "class": "logging.FileHandler",
+      "level": "ERROR",
+      "formatter": "detail",
+      "filename": "err.log"
+    }
+  },
+  "loggers": {
+    "app": {
+      "level": "DEBUG",
+      "handlers": [
+        "console",
+        "err_file"
+      ],
+      "propagate": true
+    }
+  }
+}
