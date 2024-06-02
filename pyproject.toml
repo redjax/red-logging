@@ -1,6 +1,6 @@
 [project]
 name = "red-logging"
-version = "0.1.0"
+version = "0.1.1"
 description = "Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies."
 authors = [
     { name = "redjaxk", email = "no@none.com" },
