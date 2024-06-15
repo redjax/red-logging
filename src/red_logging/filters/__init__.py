@@ -14,3 +14,4 @@ from .loglevel_filters import (
     info_filter,
     warning_filter,
 )
+from ._filters import FilterConfig
