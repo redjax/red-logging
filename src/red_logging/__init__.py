@@ -16,4 +16,5 @@ from .helpers import (
     get_logger_config,
     get_rotatingfilehandler_config,
     get_streamhandler_config,
+    setup_logging,
 )

@@ -1,6 +1,6 @@
 [project]
 name = "red-logging"
-version = "0.1.2"
+version = "0.1.3"
 description = "Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies."
 authors = [
     { name = "redjaxk", email = "no@none.com" },
@@ -8,6 +8,11 @@ authors = [
 dependencies = []
 requires-python = ">=3.11"
 readme = "README.md"
+
+[project.urls]
+Repository = "https://github.com/redjax/red-logging"
+Documentation = "https://red-logging.readthedocs.io/en/latest/"
+Download = "https://pypi.org/project/red-logging/"
 
 [project.license]
 text = "MIT"

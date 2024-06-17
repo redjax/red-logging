@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import logging.config
 
 log = logging.getLogger("red_logging.std.logging_utils")
 
@@ -476,3 +477,52 @@ def print_configdict(logging_config: dict = None) -> None:
     print_msg: str = json.dumps(logging_config)
 
     print(f"Logging config dict:\n{print_msg}")
+
+
+def setup_logging(
+    disable_existing_loggers: bool = False,
+    app_name: str = "app",
+    log_level: str = "NOTSET",
+    log_fmt: str = MESSAGE_FMT_STANDARD,
+    log_datefmt: str = DATE_FMT_STANDARD,
+    extra_formatters: list = [],
+    extra_handlers: list = [],
+    extra_loggers: list = [],
+    disable_logger_names: list = [],
+):
+    app_formatter = get_formatter_config(fmt=log_fmt, datefmt=log_datefmt)
+    app_console_handler = get_streamhandler_config(level="DEBUG")
+    app_logger = get_logger_config(name=app_name, level=log_level)
+
+    _formatters = [app_formatter]
+    if extra_formatters:
+        _formatters = _formatters + extra_formatters
+
+    _handlers = [app_console_handler]
+    if extra_handlers:
+        _handlers = _handlers + extra_handlers
+
+    _loggers = [app_logger]
+    if _loggers:
+        _loggers = _loggers + extra_loggers
+
+    logging_config = assemble_configdict(
+        disable_existing_loggers=disable_existing_loggers,
+        formatters=_formatters,
+        handlers=_handlers,
+        loggers=_loggers,
+    )
+
+    logging.config.dictConfig(config=logging_config)
+
+    if disable_logger_names:
+        for extra_logger in disable_logger_names:
+            try:
+                logging.getLogger(extra_logger).setLevel(logging.WARNING)
+            except Exception as exc:
+                msg = Exception(
+                    f"Unhandled exception settings logger '{extra_logger}' to logging.WARNING level. Details: {exc}"
+                )
+                log.warning(msg)
+
+                continue

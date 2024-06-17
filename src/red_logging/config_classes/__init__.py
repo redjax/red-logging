@@ -14,13 +14,6 @@ from __future__ import annotations
 
 from . import prefab
 from .base import BASE_LOGGING_CONFIG_DICT
-from .filters import (
-    critical_filter,
-    debug_filter,
-    error_filter,
-    info_filter,
-    warning_filter,
-)
 from .formatters import FormatterConfig
 from .handlers import FileHandlerConfig, RotatingFileHandlerConfig, StreamHandlerConfig
 from .loggers import LoggerConfig, LoggerFactory

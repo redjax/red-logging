@@ -9,4 +9,5 @@ from .__methods import (
     get_streamhandler_config,
     print_configdict,
     save_configdict,
+    setup_logging,
 )
