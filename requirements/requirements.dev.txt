@@ -83,7 +83,7 @@ tomlkit==0.12.5
 truststore==0.9.1; python_version >= "3.10"
 typing-extensions==4.12.2
 unearth==0.15.4
-urllib3==2.2.1
+urllib3==2.2.2
 virtualenv==20.26.2
 vulture==2.11
 watchdog==4.0.1
