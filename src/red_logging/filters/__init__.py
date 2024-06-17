@@ -7,6 +7,7 @@ do need to import the filter function into whatever script runs the `logging.con
 from __future__ import annotations
 
 from . import loglevel_filters
+from ._filters import FilterConfig
 from .loglevel_filters import (
     critical_filter,
     debug_filter,
@@ -14,4 +15,3 @@ from .loglevel_filters import (
     info_filter,
     warning_filter,
 )
-from ._filters import FilterConfig
