@@ -2,24 +2,26 @@
 name = "red-logging"
 version = "0.1.2"
 description = "Helpful classes, functions, & utilities for the stdlib `logging` module. No external dependencies."
-authors = [
-    { name = "redjaxk", email = "no@none.com" },
-]
+authors = [{ name = "redjaxk", email = "no@none.com" }]
 dependencies = []
 requires-python = ">=3.11"
 readme = "README.md"
+
+[project.urls]
+Repository = "https://github.com/redjax/red-logging"
+Documentation = "https://red-logging.readthedocs.io/en/latest/"
+Download = "https://pypi.org/project/red-logging/"
 
 [project.license]
 text = "MIT"
 
 [build-system]
-requires = [
-    "pdm-backend",
-]
+requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
 
 [tool.pdm.dev-dependencies]
 dev = [
@@ -122,9 +124,5 @@ cmd = "mkdocs build"
 cmd = "mkdocs serve --dev-addr 0.0.0.0:8000"
 
 [tool.bandit]
-exclude_dirs = [
-    "tests",
-]
-skips = [
-    "B324",
-]
+exclude_dirs = ["tests"]
+skips = ["B324"]
